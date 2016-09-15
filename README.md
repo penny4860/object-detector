@@ -3,9 +3,9 @@
 
 <img src="examples/op.gif">
 
-This project implements basic object detection framework using python.
+<img src="examples/faces.gif">
 
-References for building this project is [pyimagesearch](https://gurus.pyimagesearch.com/).
+This project implements basic object detection framework using python.
 
 ## 1. Quick Start with default configuration file
 
