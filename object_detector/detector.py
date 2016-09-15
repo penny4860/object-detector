@@ -129,22 +129,10 @@ class Detector(object):
             
             filename_ = str(self._display_image_cnt).zfill(4)
             cv2.imwrite("frames/{}.jpg".format(filename_), image)
-            
-        if color == (0,0,255):
-            filename_ = str(self._display_image_cnt).zfill(4)
-            cv2.imwrite("frames/{}.jpg".format(filename_), image)
             self._display_image_cnt += 1
             
             filename_ = str(self._display_image_cnt).zfill(4)
             cv2.imwrite("frames/{}.jpg".format(filename_), image)
-            self._display_image_cnt += 1
-            
-            filename_ = str(self._display_image_cnt).zfill(4)
-            cv2.imwrite("frames/{}.jpg".format(filename_), image)
-
-            filename_ = str(self._display_image_cnt).zfill(4)
-            cv2.imwrite("frames/{}.jpg".format(filename_), image)
-            
         else:
             if self._display_image_cnt % 3 == 0:
                 filename_ = str(self._display_image_cnt).zfill(4)
