@@ -73,11 +73,7 @@ class Detector(object):
         probs = []
         
         # Todo : 모든 patch 를 generate 한 다음 한번에 연산하는 것과 속도를 비교해보자.
-        for i, _ in enumerate(scanner_.get_next_layer(pyramid_scale, window_size[0], window_size[1])):
-            
-            if i == 0:
-                continue
-            
+        for _ in scanner_.get_next_layer(pyramid_scale, window_size[0], window_size[1]):
             for _, _, window in scanner_.get_next_patch(step[0], step[1], window_size[0], window_size[1]):
                 
                 # Todo: Refactoring, direct access should be denied
@@ -120,24 +116,8 @@ class Detector(object):
         else:
             cv2.waitKey(1)
             time.sleep(delay)
-        
-        if color == (255,0,0):
             
-            filename_ = str(self._display_image_cnt).zfill(4)
-            cv2.imwrite("frames/{}.jpg".format(filename_), image)
-            self._display_image_cnt += 1
-            
-            filename_ = str(self._display_image_cnt).zfill(4)
-            cv2.imwrite("frames/{}.jpg".format(filename_), image)
-            self._display_image_cnt += 1
-            
-            filename_ = str(self._display_image_cnt).zfill(4)
-            cv2.imwrite("frames/{}.jpg".format(filename_), image)
-        else:
-            if self._display_image_cnt % 3 == 0:
-                filename_ = str(self._display_image_cnt).zfill(4)
-                cv2.imwrite("frames/{}.jpg".format(filename_), image)
-            
+        cv2.imwrite("frames/{}.jpg".format(self._display_image_cnt), image)
     
     def hard_negative_mine(self, negative_image_files, window_size, step, pyramid_scale=0.7, threshold_prob=0.5):
 
