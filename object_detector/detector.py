@@ -64,7 +64,6 @@ class Detector(object):
         """
         
         self._display_image = image
-        self._display_image_cnt = 0
         
         gray_image = self._get_grayscale(image)
         scanner_ = scanner.ImageScanner(gray_image)
@@ -86,7 +85,6 @@ class Detector(object):
                 
                 if show_operation:
                     self._show(scanner_.bounding_box, prob, threshold_prob)
-                    self._display_image_cnt += 1
 
         if do_nms and boxes != []:
             # Todo : overlapThresh를 0.5 로 바꾸고 테스트해보자.
@@ -116,8 +114,6 @@ class Detector(object):
         else:
             cv2.waitKey(1)
             time.sleep(delay)
-            
-        cv2.imwrite("frames/{}.jpg".format(self._display_image_cnt), image)
     
     def hard_negative_mine(self, negative_image_files, window_size, step, pyramid_scale=0.7, threshold_prob=0.5):
 
