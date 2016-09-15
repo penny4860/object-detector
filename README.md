@@ -3,7 +3,7 @@
 
 <img src="examples/op.gif">
 
-<img src="examples/faces.gif">
+<img src="examples/faces_.gif">
 
 This project implements basic object detection framework using python.
 
